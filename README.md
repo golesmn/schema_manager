@@ -24,4 +24,31 @@ requirements.txt    # Dependencies
 2. To create models, select the service you want and add the required models. If the service you are looking for is not available then create one.
 3. After creating models, register them to `admin.py` file, so that it's visible in django admin panel.
 
+### Migrating changes to db
+
+#### 1. Locally
+
+- Start the db server by running 
+
+    ```bash
+    docker compose -f docker-compose.dev.yml up -d
+    ```
+
+- Expose the db to `kind`.
+
+    ```bash
+    docker network connect kind  event_driven_demo_db
+    ```
+
+- Run migrations
+
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+### 2. Production
+
+- TBD
+
 ---
